@@ -2896,6 +2896,14 @@ expo-asset@~8.3.3:
     path-browserify "^1.0.0"
     url-parse "^1.4.4"
 
+expo-av@~9.2.3:
+  version "9.2.3"
+  resolved "https://registry.yarnpkg.com/expo-av/-/expo-av-9.2.3.tgz#aa54da9c0bc1c3eb0251c1da17f5123f15d4f82f"
+  integrity sha512-If6+JqB2mqMKJxHgN8UAx75CWH4kPAzx2EyP+MFmcPVpcSBJZ/Fj+EfI+GJnk3tHPSB2Eld1IFEYOIJCkN/26Q==
+  dependencies:
+    "@expo/config-plugins" "^3.0.0"
+    expo-modules-core "~0.2.0"
+
 expo-constants@^11.0.2, expo-constants@~11.0.1:
   version "11.0.2"
   resolved "https://registry.yarnpkg.com/expo-constants/-/expo-constants-11.0.2.tgz#069930145908fef7d76bf72a1a874a1d4621af82"
@@ -5126,6 +5134,11 @@ react-native-size-matters@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/react-native-size-matters/-/react-native-size-matters-0.3.1.tgz#24d0cfc335a2c730f6d58bd7b43ea5a41be4b49f"
   integrity sha512-mKOfBLIBFBcs9br1rlZDvxD5+mAl8Gfr5CounwJtxI6Z82rGrMO+Kgl9EIg3RMVf3G855a85YVqHJL2f5EDRlw==
+
+react-native-track-player@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-track-player/-/react-native-track-player-2.0.3.tgz#a2648e2468f8502359b4678655573501d46f0c64"
+  integrity sha512-XV+92szbnf4FcByzfT62fN+iT9o0WhoMgDFl63Jf4gk6vw6VOFchPOoHKHW0XqgnO4vIit8CFc8u945l8vSSuQ==
 
 react-native-web@~0.13.12:
   version "0.13.18"

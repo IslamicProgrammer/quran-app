@@ -1,14 +1,18 @@
 import React, { useState } from "react"
 import { View, StyleSheet, ImageBackground, Image } from "react-native"
-import { TabView } from "react-native-elements"
-import { Text } from "../components/common"
+import { Button, TabView } from "react-native-elements"
+import { Screen, Text } from "../components/common"
 import Tabs from "../components/main/tabs"
+import useSound from "../hooks/use-sound"
 
 const MainScreen = () => {
   const [index, setIndex] = useState(0)
+  const { playSound, stopSound } = useSound(
+    "https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_1MG.mp3"
+  )
 
   return (
-    <View style={styles.container}>
+    <Screen style={styles.container}>
       <View style={styles.title}>
         <Text h6>Asslamualaikum</Text>
         <Text weight="Poppins-Semibold" h5 color="black">
@@ -43,7 +47,8 @@ const MainScreen = () => {
       <TabView style={{ height: 200 }} value={index} onChange={setIndex}>
         <TabView.Item style={{ width: "100%", height: 300 }}>
           <Text h1 color="primary">
-            Surah
+            <Button title="start" onPress={playSound} />
+            <Button title="stop" onPress={stopSound} />
           </Text>
         </TabView.Item>
         <TabView.Item style={{ width: "100%", height: 300 }}>
@@ -62,7 +67,7 @@ const MainScreen = () => {
           </Text>
         </TabView.Item>
       </TabView>
-    </View>
+    </Screen>
   )
 }
 
