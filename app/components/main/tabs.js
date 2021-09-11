@@ -1,11 +1,11 @@
 import React from "react"
-import { StyleSheet, Text, View } from "react-native"
+import { StyleSheet } from "react-native"
 import { Tab } from "react-native-elements"
 import colors from "../../config/colors"
 
-const Tabs = ({ index, setIndex }) => {
-  const titles = ["Surah", "Parah", "Page", "Hijb"]
+const titles = ["Surah", "Parah", "Page", "Hijb"]
 
+const Tabs = ({ index, setIndex }) => {
   return (
     <Tab
       indicatorStyle={{
@@ -19,13 +19,15 @@ const Tabs = ({ index, setIndex }) => {
     >
       {titles.map((title, idx) => (
         <Tab.Item
-          titleStyle={{
-            color: index === idx ? colors.primary : colors.secondary,
-            textTransform: "capitalize",
-            fontSize: idx === index ? 16 : 15,
-            fontFamily: "Poppins-Semibold",
-          }}
-          buttonStyle={{ backgroundColor: colors.white }}
+          key={title}
+          titleStyle={[
+            styles.titleStyle,
+            {
+              color: index === idx ? colors.primary : colors.secondary,
+              fontSize: idx === index ? 16 : 15,
+            },
+          ]}
+          buttonStyle={styles.buttonStyle}
           title={title}
         />
       ))}
@@ -35,4 +37,7 @@ const Tabs = ({ index, setIndex }) => {
 
 export default Tabs
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  buttonStyle: { backgroundColor: colors.white },
+  titleStyle: { textTransform: "capitalize", fontFamily: "Poppins-Semibold" },
+})

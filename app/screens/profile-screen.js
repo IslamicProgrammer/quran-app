@@ -1,12 +1,8 @@
 import React from "react"
-import { View, Text } from "react-native"
+import { ActivityIndicator } from "../components/common"
 
 const ProfileScreen = () => {
-  return (
-    <View>
-      <Text>Profile Screen</Text>
-    </View>
-  )
+  return <ActivityIndicator visible={true} />
 }
 
 export default ProfileScreen
