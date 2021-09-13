@@ -43,11 +43,11 @@ const WelcomeScreen = ({ navigation }) => {
           />
         </View>
       </ImageBackground>
-      <TouchableOpacity style={styles.footerText} onPress={handleOpen}>
+      {/* <TouchableOpacity style={styles.footerText} onPress={handleOpen}>
         <Text h6 style={{ fontSize: 14 }}>
           by @azamov_dev
         </Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </Screen>
   )
 }

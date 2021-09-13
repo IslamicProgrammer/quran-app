@@ -8,6 +8,7 @@ import Button from "./elements/button"
 import MainIcon from "../assets/icons/main.png"
 import BookIcon from "../assets/icons/book.png"
 import ProfileIcon from "../assets/icons/profile.png"
+import MainNavigation from "./main-navigation"
 
 const Tab = createBottomTabNavigator()
 
@@ -18,47 +19,51 @@ export default function BottomNavigator() {
         name="Book"
         component={BookScreen}
         options={({ navigation }) => ({
-          title: "Quran",
-          tabBarButton: () => (
-            <Button
-              active={navigation.isFocused()}
-              onPress={() => {
-                navigation.navigate("Book")
-              }}
-              icon={BookIcon}
-            />
-          ),
+          // tabBarButton: () => (
+          //   <Button
+          //     active={navigation.isFocused()}
+          //     onPress={() => {
+          //       navigation.navigate("Book")
+          //     }}
+          //     icon={BookIcon}
+          //   />
+          // ),
+          headerTitle: "book",
         })}
       />
       <Tab.Screen
         name="Main"
-        component={MainScreen}
-        options={({ navigation }) => ({
-          tabBarButton: () => (
-            <Button
-              active={navigation.isFocused()}
-              primary
-              onPress={() => {
-                navigation.navigate("Main")
-              }}
-              icon={MainIcon}
-            />
-          ),
-        })}
+        component={MainNavigation}
+        options={({ navigation }) => {
+          return {
+            headerTitle: "main",
+            // tabBarButton: () => (
+            //   <Button
+            //     active={navigation.isFocused()}
+            //     primary
+            //     onPress={() => {
+            //       navigation.navigate("Main")
+            //     }}
+            //     icon={MainIcon}
+            //   />
+            // ),
+          }
+        }}
       />
       <Tab.Screen
         name="Profile"
         component={ProfileScreen}
         options={({ navigation }) => ({
-          tabBarButton: () => (
-            <Button
-              active={navigation.isFocused()}
-              onPress={() => {
-                navigation.navigate("Profile")
-              }}
-              icon={ProfileIcon}
-            />
-          ),
+          headerTitle: "prifile",
+          // tabBarButton: () => (
+          //   <Button
+          //     active={navigation.isFocused()}
+          //     onPress={() => {
+          //       navigation.navigate("Profile")
+          //     }}
+          //     icon={ProfileIcon}
+          //   />
+          // ),
         })}
       />
     </Tab.Navigator>

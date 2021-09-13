@@ -8,11 +8,15 @@ import WelcomeScreen from "./app/screens/welocome-screen"
 import { NavigationContainer } from "@react-navigation/native"
 import AppNavigator from "./app/navigation/app-navigator"
 import navigationTheme from "./app/navigation/elements/navigation-theme"
+import { Provider } from "react-redux"
+import store from "./app/store/store"
 
 export default function App() {
   return (
-    <NavigationContainer theme={navigationTheme}>
-      <AppNavigator />
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer theme={navigationTheme}>
+        <AppNavigator />
+      </NavigationContainer>
+    </Provider>
   )
 }

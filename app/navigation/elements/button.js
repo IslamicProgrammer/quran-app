@@ -5,6 +5,8 @@ import colors from "../../config/colors"
 const Button = ({ onPress, active = false, primary, icon }) => {
   return (
     <TouchableOpacity
+      accessible
+      accessibilityLabel="tap me"
       style={{
         justifyContent: "space-between",
         flex: 1,
@@ -15,8 +17,11 @@ const Button = ({ onPress, active = false, primary, icon }) => {
         style={[
           styles.container,
           {
-            backgroundColor:
-              active && primary ? colors.primary : colors.lightPurple,
+            backgroundColor: active
+              ? primary
+                ? colors.primary
+                : colors.lightPurple
+              : colors.lightPurple,
             width: !primary ? 60 : 80,
             height: !primary ? 60 : 80,
             bottom: !primary ? 10 : 20,

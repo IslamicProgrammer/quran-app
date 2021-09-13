@@ -16,6 +16,7 @@ const AppText = ({
     "Poppins-Regular": require("../../assets/fonts/Poppins/Poppins-Regular.ttf"),
     "Poppins-Black": require("../../assets/fonts/Poppins/Poppins-Black.ttf"),
     "Poppins-Semibold": require("../../assets/fonts/Poppins/Poppins-SemiBold.ttf"),
+    Amiri: require("../../assets/fonts/Amiri/Amiri-Bold.ttf"),
   })
 
   if (!fontsLoaded) {

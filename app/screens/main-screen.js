@@ -1,11 +1,12 @@
 import React, { useState } from "react"
-import { View, StyleSheet, ImageBackground, Image } from "react-native"
+import { View, StyleSheet, Image } from "react-native"
 import { Button, TabView } from "react-native-elements"
+import { Content } from "../components"
 import { Screen, Text } from "../components/common"
 import Tabs from "../components/main/tabs"
 import useSound from "../hooks/use-sound"
 
-const MainScreen = () => {
+const MainScreen = ({ navigation }) => {
   const [index, setIndex] = useState(0)
   const { playSound, stopSound } = useSound(
     "https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_1MG.mp3"
@@ -44,29 +45,12 @@ const MainScreen = () => {
         </View>
       </View>
       <Tabs index={index} setIndex={setIndex} />
-      <TabView style={{ height: 200 }} value={index} onChange={setIndex}>
-        <TabView.Item style={{ width: "100%", height: 300 }}>
-          <Text h1 color="primary">
-            <Button title="start" onPress={playSound} />
-            <Button title="stop" onPress={stopSound} />
-          </Text>
-        </TabView.Item>
-        <TabView.Item style={{ width: "100%", height: 300 }}>
-          <Text h1 color="primary">
-            Parah
-          </Text>
-        </TabView.Item>
-        <TabView.Item style={{ width: "100%", height: 300 }}>
-          <Text h1 color="primary">
-            Page
-          </Text>
-        </TabView.Item>
-        <TabView.Item style={{ width: "100%", height: 300 }}>
-          <Text h1 color="primary">
-            Hijib
-          </Text>
-        </TabView.Item>
-      </TabView>
+      <Content
+        index={index}
+        setIndex={setIndex}
+        playSound={playSound}
+        stopSound={stopSound}
+      />
     </Screen>
   )
 }
