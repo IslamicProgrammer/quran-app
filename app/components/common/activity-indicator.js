@@ -6,7 +6,7 @@ function ActivityIndicator({ visible = false }) {
 
   return (
     <LottieView
-      source={require("../../assets/json/loading.json")}
+      source={require("../../assets/json/loader.json")}
       autoPlay
       loop
     />

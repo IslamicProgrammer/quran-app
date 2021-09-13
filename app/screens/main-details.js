@@ -1,7 +1,7 @@
 import React from "react"
 import { View, Text } from "react-native"
 
-const MainDetails = ({ navigation, route }) => {
+const MainDetails = ({ route }) => {
   return (
     <View>
       <Text>{route.params.id}</Text>

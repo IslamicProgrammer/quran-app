@@ -1,26 +1,30 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
+import { createSelector } from "reselect"
 import { client } from "../../service/client"
 
-export const getSurahList = createAsyncThunk("surah/get", async () => {
+export const fetchSurahList = createAsyncThunk("surah/get", async () => {
   const response = await client.get("/surah")
-  console.log("response", response.data)
   return response.data
 })
 
 const initialState = {
-  surahChapters: [],
-  loading: false,
+  surahList: [],
 }
 
 const slice = createSlice({
   name: "entities",
   initialState,
   extraReducers: builder => {
-    builder.addCase(getSurahList.fulfilled, (state, action) => {
+    builder.addCase(fetchSurahList.fulfilled, (state, action) => {
       console.log("action", action.payload.data)
-      state.surahChapters = action.payload.data
+      state.surahList = action.payload.data
     })
   },
 })
 
 export default slice.reducer
+
+export const getSurahList = createSelector(
+  store => store.entities,
+  entities => entities.surahList
+)

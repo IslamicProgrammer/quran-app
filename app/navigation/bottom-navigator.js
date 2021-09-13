@@ -14,21 +14,24 @@ const Tab = createBottomTabNavigator()
 
 export default function BottomNavigator() {
   return (
-    <Tab.Navigator initialRouteName="Main" tabBarBadgeStyle={styles.container}>
+    <Tab.Navigator
+      screenOptions={{ headerShown: false }}
+      initialRouteName="Main"
+      tabBarBadgeStyle={styles.container}
+    >
       <Tab.Screen
         name="Book"
         component={BookScreen}
         options={({ navigation }) => ({
-          // tabBarButton: () => (
-          //   <Button
-          //     active={navigation.isFocused()}
-          //     onPress={() => {
-          //       navigation.navigate("Book")
-          //     }}
-          //     icon={BookIcon}
-          //   />
-          // ),
-          headerTitle: "book",
+          tabBarButton: () => (
+            <Button
+              active={navigation.isFocused()}
+              onPress={() => {
+                navigation.navigate("Book")
+              }}
+              icon={BookIcon}
+            />
+          ),
         })}
       />
       <Tab.Screen
@@ -36,17 +39,16 @@ export default function BottomNavigator() {
         component={MainNavigation}
         options={({ navigation }) => {
           return {
-            headerTitle: "main",
-            // tabBarButton: () => (
-            //   <Button
-            //     active={navigation.isFocused()}
-            //     primary
-            //     onPress={() => {
-            //       navigation.navigate("Main")
-            //     }}
-            //     icon={MainIcon}
-            //   />
-            // ),
+            tabBarButton: () => (
+              <Button
+                active={navigation.isFocused()}
+                primary
+                onPress={() => {
+                  navigation.navigate("Main")
+                }}
+                icon={MainIcon}
+              />
+            ),
           }
         }}
       />
@@ -54,16 +56,15 @@ export default function BottomNavigator() {
         name="Profile"
         component={ProfileScreen}
         options={({ navigation }) => ({
-          headerTitle: "prifile",
-          // tabBarButton: () => (
-          //   <Button
-          //     active={navigation.isFocused()}
-          //     onPress={() => {
-          //       navigation.navigate("Profile")
-          //     }}
-          //     icon={ProfileIcon}
-          //   />
-          // ),
+          tabBarButton: () => (
+            <Button
+              active={navigation.isFocused()}
+              onPress={() => {
+                navigation.navigate("Profile")
+              }}
+              icon={ProfileIcon}
+            />
+          ),
         })}
       />
     </Tab.Navigator>

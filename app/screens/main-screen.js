@@ -1,56 +1,62 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { View, StyleSheet, Image } from "react-native"
 import { Button, TabView } from "react-native-elements"
 import { Content } from "../components"
-import { Screen, Text } from "../components/common"
+import { ActivityIndicator, Screen, Text } from "../components/common"
 import Tabs from "../components/main/tabs"
 import useSound from "../hooks/use-sound"
 
 const MainScreen = ({ navigation }) => {
   const [index, setIndex] = useState(0)
+  const [loading, setLoading] = useState(false)
   const { playSound, stopSound } = useSound(
     "https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_1MG.mp3"
   )
 
   return (
     <Screen style={styles.container}>
-      <View style={styles.title}>
-        <Text h6>Asslamualaikum</Text>
-        <Text weight="Poppins-Semibold" h5 color="black">
-          Tanvir Ahassan
-        </Text>
-      </View>
-      <View style={styles.card} resizeMode="cover">
-        <Image
-          style={styles.image}
-          source={require("../assets/images/dashboard.png")}
-        />
-        <View style={styles.content}>
-          <Text
-            h6
-            style={{ fontSize: 18 }}
-            color="white"
-            weight="Poppins-Semibold"
-          >
-            Al-Fatiah
-          </Text>
-          <Text
-            h6
-            style={{ fontSize: 16, opacity: 0.8 }}
-            color="white"
-            weight="Poppins-Regular"
-          >
-            Al-Fatiah
-          </Text>
-        </View>
-      </View>
-      <Tabs index={index} setIndex={setIndex} />
-      <Content
-        index={index}
-        setIndex={setIndex}
-        playSound={playSound}
-        stopSound={stopSound}
-      />
+      <ActivityIndicator visible={loading} />
+      {!loading && (
+        <>
+          <View style={styles.title}>
+            <Text h6>Asslamualaikum</Text>
+            <Text weight="Poppins-Semibold" h5 color="black">
+              Tanvir Ahassan
+            </Text>
+          </View>
+          <View style={styles.card} resizeMode="cover">
+            <Image
+              style={styles.image}
+              source={require("../assets/images/dashboard.png")}
+            />
+            <View style={styles.content}>
+              <Text
+                h6
+                style={{ fontSize: 18 }}
+                color="white"
+                weight="Poppins-Semibold"
+              >
+                Al-Fatiah
+              </Text>
+              <Text
+                h6
+                style={{ fontSize: 16, opacity: 0.8 }}
+                color="white"
+                weight="Poppins-Regular"
+              >
+                Al-Fatiah
+              </Text>
+            </View>
+          </View>
+          <Tabs index={index} setIndex={setIndex} />
+          <Content
+            index={index}
+            setIndex={setIndex}
+            playSound={playSound}
+            stopSound={stopSound}
+          />
+        </>
+      )}
     </Screen>
   )
 }
