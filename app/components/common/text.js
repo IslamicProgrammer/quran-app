@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { StyleSheet } from "react-native"
 import colors from "../../config/colors"
 import AppLoading from "expo-app-loading"

@@ -1,10 +1,10 @@
 import React from "react"
 import { Audio } from "expo-av"
 
-export default function useSound(uri) {
+export default function useSound() {
   const [sound, setSound] = React.useState()
 
-  async function playSound() {
+  async function playSound(uri) {
     const { sound, ...args } = await Audio.Sound.createAsync({
       uri,
     })

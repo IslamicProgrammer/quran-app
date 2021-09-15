@@ -1,8 +1,12 @@
 import React from "react"
-import { ActivityIndicator } from "../components/common"
+import { ActivityIndicator, Screen } from "../components/common"
 
 const ProfileScreen = () => {
-  return <ActivityIndicator visible={true} />
+  return (
+    <Screen>
+      <ActivityIndicator visible={true} />
+    </Screen>
+  )
 }
 
 export default ProfileScreen

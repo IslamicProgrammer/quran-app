@@ -6,4 +6,6 @@ export default {
   lightPurple: "#f2ebfc",
   black: "#240F4F",
   lightGray: "rgba(187, 196, 206, 0.35)",
+  red: "#FF0B3A",
+  darkCyan: "#240F4F",
 }

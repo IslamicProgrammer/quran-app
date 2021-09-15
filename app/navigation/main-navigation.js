@@ -4,7 +4,7 @@ import AppScreen from "../screens/app-screen"
 import WelcomeScreen from "../screens/welocome-screen"
 import BottomNavigator from "./bottom-navigator"
 import MainScreen from "../screens/main-screen"
-import MainDetails from "../screens/main-details"
+import MainDetails from "../screens/main-details-screen"
 
 const Stack = createStackNavigator()
 

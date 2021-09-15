@@ -8,5 +8,8 @@ const rootReducer = combineReducers({
 
 export default store = configureStore({
   reducer: rootReducer,
-  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(thunk),
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }).concat(thunk),
 })

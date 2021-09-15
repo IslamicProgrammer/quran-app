@@ -1,17 +1,25 @@
 import React, { useEffect, useState } from "react"
 import { View, StyleSheet, Image } from "react-native"
-import { Button, TabView } from "react-native-elements"
+import { useDispatch, useSelector } from "react-redux"
 import { Content } from "../components"
 import { ActivityIndicator, Screen, Text } from "../components/common"
 import Tabs from "../components/main/tabs"
-import useSound from "../hooks/use-sound"
+import { fetchSurahList, getSurahList } from "../store/entities/entities"
 
-const MainScreen = ({ navigation }) => {
+const MainScreen = () => {
   const [index, setIndex] = useState(0)
   const [loading, setLoading] = useState(false)
-  const { playSound, stopSound } = useSound(
-    "https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_1MG.mp3"
-  )
+  const dispatch = useDispatch()
+  const surahs = useSelector(getSurahList)
+
+  useEffect(() => {
+    if (surahs.length) setLoading(false)
+  }, [surahs])
+
+  useEffect(() => {
+    setLoading(true)
+    dispatch(fetchSurahList())
+  }, [])
 
   return (
     <Screen style={styles.container}>
@@ -49,12 +57,7 @@ const MainScreen = ({ navigation }) => {
             </View>
           </View>
           <Tabs index={index} setIndex={setIndex} />
-          <Content
-            index={index}
-            setIndex={setIndex}
-            playSound={playSound}
-            stopSound={stopSound}
-          />
+          <Content index={index} setIndex={setIndex} surahData={surahs} />
         </>
       )}
     </Screen>
